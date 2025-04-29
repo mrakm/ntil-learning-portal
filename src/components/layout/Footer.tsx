@@ -74,11 +74,11 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Contact</h3>
             <address className="not-italic text-gray-300 space-y-2">
-              <p>A-48 2nd Floor, Block A, Phase-2,</p>
+              <p>A-56 2nd Floor, Block B, Phase-1,</p>
               <p>Mangolpuri Industrial Area,</p>
               <p>Delhi 110034</p>
               <p>Email: info@ntil.in</p>
-              <p>Phone: +91-XXXXXXXXXX</p>
+              <p>Phone: +91- 8700823915</p>
             </address>
           </div>
 
