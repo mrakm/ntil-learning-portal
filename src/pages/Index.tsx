@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import ContactFormModal from "@/components/ContactFormModal";
+
 const Index = () => {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+
   const services = [{
     title: "IT Certification Training",
     description: "Professional training for AWS, Microsoft, Cisco, and more.",
@@ -51,11 +56,14 @@ const Index = () => {
                   Explore Programs
                 </Button>
               </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-white hover:bg-white text-slate-900">
-                  Get in Touch
-                </Button>
-              </Link>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white hover:bg-white text-slate-900"
+                onClick={() => setContactModalOpen(true)}
+              >
+                Get in Touch
+              </Button>
             </div>
           </div>
         </div>
@@ -183,14 +191,23 @@ const Index = () => {
                 Browse Programs
               </Button>
             </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline">
-                Contact Us
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => setContactModalOpen(true)}
+            >
+              Contact Us
+            </Button>
           </div>
         </div>
       </section>
+
+      {/* Contact Form Modal */}
+      <ContactFormModal 
+        open={contactModalOpen}
+        onOpenChange={setContactModalOpen}
+        interest="Homepage Inquiry"
+      />
     </div>;
 };
 export default Index;
