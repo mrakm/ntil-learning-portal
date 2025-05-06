@@ -52,6 +52,7 @@ const Contact = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Referer": "https://ntilcrt.com/"
           },
           body: JSON.stringify({
             name: data.name,
@@ -129,9 +130,9 @@ const Contact = () => {
                   <div className="ml-4">
                     <h3 className="text-lg font-bold">Address</h3>
                     <p className="text-gray-600">
-                      A-48 2nd Floor, Block A, Phase-2,<br />
-                      Mangolpuri Industrial Area,<br />
-                      Delhi 110034
+                      <p>45, Behind Reliance Trends,opp To Sjr Verity ,Kpc Layout Hosa Road</p>
+                      <p>Kasavanahalli, Bangalore East,</p>
+                      <p>Bangalore 560035</p>
                     </p>
                   </div>
                 </div>
@@ -174,7 +175,7 @@ const Contact = () => {
                 <h3 className="text-lg font-bold mb-4">Our Location</h3>
                 <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.8270392286196!2d77.1156489753404!3d28.697474982289904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d043cb207e5a7%3A0x726d7dd3009e6e83!2sMangolpuri%20Industrial%20Area%20Phase%202%2C%20Mangolpuri%2C%20Delhi%2C%20110034!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62225.68539707214!2d77.64639947340902!3d12.900947676275814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae133cd6097f29%3A0xbfaa92a71c8c71ed!2sBengaluru%2C%20Karnataka%20560035!5e0!3m2!1sen!2sin!4v1746567661250!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

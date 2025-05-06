@@ -74,9 +74,9 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Contact</h3>
             <address className="not-italic text-gray-300 space-y-2">
-              <p>A-56 2nd Floor, Block B, Phase-1,</p>
-              <p>Mangolpuri Industrial Area,</p>
-              <p>Delhi 110034</p>
+              <p>45, Behind Reliance Trends,opp To Sjr Verity ,Kpc Layout Hosa Road</p>
+              <p>Kasavanahalli, Bangalore East,</p>
+              <p>Bangalore 560035</p>
               <p>Email: info@ntilcrt.com</p>
               <p>Phone: +91 8700823915</p>
             </address>
