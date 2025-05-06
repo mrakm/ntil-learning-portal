@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,6 +8,7 @@ import ContactFormModal from "@/components/ContactFormModal";
 
 const Index = () => {
   const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState("");
 
   const services = [{
     title: "IT Certification Training",
@@ -34,6 +36,12 @@ const Index = () => {
     role: "Software Engineer",
     comment: "The AWS training helped me secure a better job. Thank you!"
   }];
+  
+  const handleLearnMoreClick = (program: string) => {
+    setSelectedProgram(`${program} Program Inquiry`);
+    setContactModalOpen(true);
+  };
+  
   return <div>
       {/* Hero Section */}
       <section className="relative h-[600px]">
@@ -125,7 +133,10 @@ const Index = () => {
                       <span>Exam preparation materials</span>
                     </li>
                   </ul>
-                  <Button className="w-full mt-4 bg-ntil-600 hover:bg-ntil-700">
+                  <Button 
+                    className="w-full mt-4 bg-ntil-600 hover:bg-ntil-700"
+                    onClick={() => handleLearnMoreClick(program)}
+                  >
                     Learn More
                   </Button>
                 </CardContent>
@@ -206,7 +217,7 @@ const Index = () => {
       <ContactFormModal 
         open={contactModalOpen}
         onOpenChange={setContactModalOpen}
-        interest="Homepage Inquiry"
+        interest={selectedProgram || "Homepage Inquiry"}
       />
     </div>;
 };
