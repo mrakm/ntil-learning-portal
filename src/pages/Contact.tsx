@@ -41,19 +41,40 @@ const Contact = () => {
     },
   });
 
-  function onSubmit(data: FormValues) {
+  async function onSubmit(data: FormValues) {
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send email using Email JS or any email service
+      const emailBody = `
+        Name: ${data.name}
+        Email: ${data.email}
+        Phone: ${data.phone}
+        Message: ${data.message}
+      `;
+      
+      // This uses the mailto protocol to open the default email client
+      // Note: This has limitations as it requires user interaction
+      const mailtoLink = `mailto:ryanntil25@gmail.com?subject=Contact Us -- Message&body=${encodeURIComponent(emailBody)}`;
+      window.open(mailtoLink, '_blank');
+      
+      // Simulate form submission completion
       console.log(data);
       toast({
         title: "Message sent successfully!",
         description: "We'll get back to you as soon as possible.",
       });
       form.reset();
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   }
 
   return (
