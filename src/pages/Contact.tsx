@@ -47,13 +47,9 @@ const Contact = () => {
     try {
       // Call the Google Apps Script API
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxab4cSKyy1vS22z-yzloONZ6oW2Mg7IDHQN02z2ozkHWTfk9k-hPUTr5VnNoLsK0nt/exec",
+        "https://script.google.com/macros/s/AKfycbzJWweoLUhWG8ERTVGan1KxzmoCUWoyu-cV2iUFHMG5cdaHuhxqvtUlosAS_EYbWfEp/exec",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Referer": "https://ntilcrt.com/"
-          },
           body: JSON.stringify({
             name: data.name,
             email: data.email,
