@@ -20,7 +20,7 @@ const About = () => {
           <div className="max-w-2xl text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
             <p className="text-lg md:text-xl">
-              Learn more about ntil.in and our commitment to education.
+              Learn more about ntilcrt.com and our commitment to education.
             </p>
           </div>
         </div>
@@ -33,7 +33,7 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6 text-ntil-800">Our Story</h2>
               <p className="text-lg mb-4">
-                ntil.in is committed to delivering world-class training and affordable certification access for IT professionals and language learners.
+                ntilcrt.com is committed to delivering world-class training and affordable certification access for IT professionals and language learners.
               </p>
               <p className="text-lg mb-4">
                 Founded with the vision to bridge the gap between education and industry requirements, we specialize in providing comprehensive training programs and certification vouchers to help students and professionals advance their careers.
@@ -66,7 +66,7 @@ const About = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Core Values</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              The principles that guide everything we do at ntil.in.
+              The principles that guide everything we do at ntilcrt.com.
             </p>
           </div>
 
@@ -111,7 +111,7 @@ const About = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Meet the passionate professional behind ntil.in.
+              Meet the passionate professional behind ntilcrt.com.
             </p>
           </div>
 
