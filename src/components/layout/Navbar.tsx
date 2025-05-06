@@ -3,9 +3,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import ContactFormModal from "@/components/ContactFormModal";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -39,8 +41,11 @@ const Navbar = () => {
                 {link.text}
               </Link>
             ))}
-            <Button className="bg-ntil-600 hover:bg-ntil-700">
-              Get Started
+            <Button 
+              className="bg-ntil-600 hover:bg-ntil-700"
+              onClick={() => setContactModalOpen(true)}
+            >
+              Get in Touch
             </Button>
           </div>
 
@@ -66,12 +71,25 @@ const Navbar = () => {
                 </Link>
               </div>
             ))}
-            <Button className="w-full bg-ntil-600 hover:bg-ntil-700">
-              Get Started
+            <Button 
+              className="w-full bg-ntil-600 hover:bg-ntil-700"
+              onClick={() => {
+                setContactModalOpen(true);
+                setIsMenuOpen(false);
+              }}
+            >
+              Get in Touch
             </Button>
           </div>
         )}
       </div>
+      
+      {/* Contact Form Modal */}
+      <ContactFormModal 
+        open={contactModalOpen}
+        onOpenChange={setContactModalOpen}
+        interest="Navbar Inquiry"
+      />
     </nav>
   );
 };
