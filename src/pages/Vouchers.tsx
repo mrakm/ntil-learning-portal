@@ -77,8 +77,8 @@ const Vouchers = () => {
     },
   ];
 
-  const handleVoucherClick = (voucherName: string) => {
-    setSelectedVoucher(`${voucherName} Exam Voucher`);
+  const handleVoucherClick = (voucherName: string, action: string) => {
+    setSelectedVoucher(`${voucherName} ${action}`);
     setContactModalOpen(true);
   };
 
@@ -148,12 +148,20 @@ const Vouchers = () => {
                     </ul>
                   </div>
                   
-                  <Button 
-                    className="w-full bg-ntil-600 hover:bg-ntil-700"
-                    onClick={() => handleVoucherClick(voucher.name)}
-                  >
-                    Get Quote
-                  </Button>
+                  <div className="grid grid-cols-2 gap-3">
+                    <Button 
+                      className="w-full bg-ntil-600 hover:bg-ntil-700"
+                      onClick={() => handleVoucherClick(voucher.name, "Learn More")}
+                    >
+                      Learn More
+                    </Button>
+                    <Button 
+                      className="w-full bg-ntil-600 hover:bg-ntil-700"
+                      onClick={() => handleVoucherClick(voucher.name, "Exam Voucher")}
+                    >
+                      Get Quote
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
