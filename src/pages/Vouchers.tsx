@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -11,26 +11,12 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { CheckCircle } from "lucide-react";
+import ContactFormModal from "@/components/ContactFormModal";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name is required" }),
@@ -43,7 +29,8 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 const Vouchers = () => {
-  const { toast } = useToast();
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [selectedVoucher, setSelectedVoucher] = useState("");
   
   const vouchers = [
     {
@@ -88,24 +75,10 @@ const Vouchers = () => {
     },
   ];
 
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-      examType: "",
-    },
-  });
-
-  function onSubmit(data: FormValues) {
-    console.log(data);
-    toast({
-      title: "Voucher request submitted",
-      description: "We will contact you shortly with more information.",
-    });
-  }
+  const handleVoucherClick = (voucherName: string) => {
+    setSelectedVoucher(`${voucherName} Exam Voucher`);
+    setContactModalOpen(true);
+  };
 
   return (
     <div>
@@ -173,91 +146,12 @@ const Vouchers = () => {
                     </ul>
                   </div>
                   
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button className="w-full bg-ntil-600 hover:bg-ntil-700">
-                        Get Quote
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-md">
-                      <DialogHeader>
-                        <DialogTitle>Request {voucher.name} Voucher</DialogTitle>
-                        <DialogDescription>
-                          Fill out this form and we'll get back to you with pricing and availability.
-                        </DialogDescription>
-                      </DialogHeader>
-                      <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                          <input 
-                            type="hidden" 
-                            {...form.register("examType")}
-                            value={voucher.name}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="name"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Name</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="Your name" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Email</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="your.email@example.com" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="phone"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Phone</FormLabel>
-                                <FormControl>
-                                  <Input placeholder="+91 9876543210" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="message"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Message</FormLabel>
-                                <FormControl>
-                                  <Textarea 
-                                    placeholder="Let us know any specific requirements or questions you have."
-                                    className="min-h-[100px]"
-                                    {...field}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          <DialogFooter>
-                            <Button type="submit" className="w-full bg-ntil-600 hover:bg-ntil-700">
-                              Submit Request
-                            </Button>
-                          </DialogFooter>
-                        </form>
-                      </Form>
-                    </DialogContent>
-                  </Dialog>
+                  <Button 
+                    className="w-full bg-ntil-600 hover:bg-ntil-700"
+                    onClick={() => handleVoucherClick(voucher.name)}
+                  >
+                    Get Quote
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -360,6 +254,13 @@ const Vouchers = () => {
           </div>
         </div>
       </section>
+
+      {/* Contact Form Modal */}
+      <ContactFormModal 
+        open={contactModalOpen}
+        onOpenChange={setContactModalOpen}
+        interest={selectedVoucher}
+      />
     </div>
   );
 };

@@ -1,4 +1,3 @@
-
 import {
   Card,
   CardContent,
@@ -9,8 +8,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { CheckCircle } from "lucide-react";
+import ContactFormModal from "@/components/ContactFormModal";
+import { useState } from "react";
 
 const Programs = () => {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState("");
+
   const programs = [
     {
       name: "AWS",
@@ -85,6 +89,11 @@ const Programs = () => {
       duration: "30-50 hours",
     },
   ];
+
+  const handleProgramClick = (programName: string) => {
+    setSelectedProgram(`${programName} Certification Training`);
+    setContactModalOpen(true);
+  };
 
   return (
     <div>
@@ -172,7 +181,10 @@ const Programs = () => {
                           <h4 className="text-sm font-medium">Course Duration</h4>
                           <p>{program.duration}</p>
                         </div>
-                        <Button className="w-full bg-ntil-600 hover:bg-ntil-700">
+                        <Button 
+                          className="w-full bg-ntil-600 hover:bg-ntil-700"
+                          onClick={() => handleProgramClick(program.name)}
+                        >
                           Enroll Now
                         </Button>
                       </div>
@@ -241,6 +253,13 @@ const Programs = () => {
           </div>
         </div>
       </section>
+
+      {/* Contact Form Modal */}
+      <ContactFormModal 
+        open={contactModalOpen}
+        onOpenChange={setContactModalOpen}
+        interest={selectedProgram}
+      />
     </div>
   );
 };
