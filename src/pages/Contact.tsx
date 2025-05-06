@@ -45,28 +45,36 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Send email using Email JS or any email service
-      const emailBody = `
-        Name: ${data.name}
-        Email: ${data.email}
-        Phone: ${data.phone}
-        Message: ${data.message}
-      `;
+      // Call the Google Apps Script API
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbxab4cSKyy1vS22z-yzloONZ6oW2Mg7IDHQN02z2ozkHWTfk9k-hPUTr5VnNoLsK0nt/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            message: data.message,
+            interest: "Contact Form Inquiry" // Default interest
+          }),
+        }
+      );
       
-      // This uses the mailto protocol to open the default email client
-      // Note: This has limitations as it requires user interaction
-      const mailtoLink = `mailto:ryanntil25@gmail.com?subject=Contact Us -- Message&body=${encodeURIComponent(emailBody)}`;
-      window.open(mailtoLink, '_blank');
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
       
-      // Simulate form submission completion
-      console.log(data);
+      console.log("Form submitted successfully");
       toast({
         title: "Message sent successfully!",
         description: "We'll get back to you as soon as possible.",
       });
       form.reset();
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("Error sending message:", error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again later.",
