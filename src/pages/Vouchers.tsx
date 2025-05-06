@@ -345,7 +345,7 @@ const Vouchers = () => {
               },
               {
                 question: "Do you offer discounts for bulk purchases?",
-                answer: "Yes, we offer special rates for organizations or groups purchasing multiple vouchers. Contact us for details."
+                answer: "Yes, we offer special rates for organizations or groups purchasing multiple vouchers. Contact us at +91 8700823915 for details."
               },
             ].map((faq, index) => (
               <Card key={index} className="hover:shadow-md transition-shadow">

@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">ntil.in</h3>
+            <h3 className="text-xl font-bold mb-4">ntilcrt.com</h3>
             <p className="text-gray-300 mb-4">
               Empowering students and professionals with globally recognized skills and credentials.
             </p>
@@ -77,8 +77,8 @@ const Footer = () => {
               <p>A-56 2nd Floor, Block B, Phase-1,</p>
               <p>Mangolpuri Industrial Area,</p>
               <p>Delhi 110034</p>
-              <p>Email: info@ntil.in</p>
-              <p>Phone: +91- 8700823915</p>
+              <p>Email: info@ntilcrt.com</p>
+              <p>Phone: +91 8700823915</p>
             </address>
           </div>
 
@@ -103,7 +103,7 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>© {currentYear} ntil.in. All rights reserved.</p>
+          <p>© {currentYear} ntilcrt.com. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className="container-custom py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-ntil-700">ntil.in</span>
+            <span className="text-2xl font-bold text-ntil-700">ntilcrt.com</span>
           </Link>
 
           {/* Desktop Menu */}

@@ -116,8 +116,8 @@ const Contact = () => {
                   <div className="ml-4">
                     <h3 className="text-lg font-bold">Email</h3>
                     <p className="text-gray-600">
-                      <a href="mailto:info@ntil.in" className="hover:text-ntil-700 transition-colors">
-                        info@ntil.in
+                      <a href="mailto:info@ntilcrt.com" className="hover:text-ntil-700 transition-colors">
+                        info@ntilcrt.com
                       </a>
                     </p>
                   </div>
@@ -132,8 +132,8 @@ const Contact = () => {
                   <div className="ml-4">
                     <h3 className="text-lg font-bold">Phone</h3>
                     <p className="text-gray-600">
-                      <a href="tel:+91XXXXXXXXXX" className="hover:text-ntil-700 transition-colors">
-                        +91-XXXXXXXXXX
+                      <a href="tel:+918700823915" className="hover:text-ntil-700 transition-colors">
+                        +91 8700823915
                       </a>
                     </p>
                   </div>
@@ -152,7 +152,7 @@ const Contact = () => {
                     allowFullScreen={true}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="ntil.in office location"
+                    title="ntilcrt.com office location"
                   ></iframe>
                 </div>
               </div>
@@ -263,7 +263,7 @@ const Contact = () => {
               },
               {
                 question: "How can I book a consultation?",
-                answer: "You can book a consultation by filling out the contact form on this page, calling our office, or sending an email to info@ntil.in.",
+                answer: "You can book a consultation by filling out the contact form on this page, calling our office, or sending an email to info@ntilcrt.com.",
               },
             ].map((faq, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
