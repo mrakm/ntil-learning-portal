@@ -1,57 +1,40 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const Index = () => {
-  const services = [
-    {
-      title: "IT Certification Training",
-      description: "Professional training for AWS, Microsoft, Cisco, and more.",
-      icon: "🖥️",
-    },
-    {
-      title: "English Exam Vouchers",
-      description: "Affordable vouchers for TOEFL, PTE, GRE, and more.",
-      icon: "🎓",
-    },
-    {
-      title: "Expert Support",
-      description: "Dedicated team to guide you through the certification journey.",
-      icon: "👨‍💼",
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: "Sumit Parab",
-      role: "Student",
-      comment: "Fantastic support team, affordable prices, and easy process!",
-    },
-    {
-      name: "Katie Daniel",
-      role: "IT Professional",
-      comment: "ISACA training was smooth and detailed. Highly recommended.",
-    },
-    {
-      name: "Rahul Sharma",
-      role: "Software Engineer",
-      comment: "The AWS training helped me secure a better job. Thank you!",
-    },
-  ];
-
-  return (
-    <div>
+  const services = [{
+    title: "IT Certification Training",
+    description: "Professional training for AWS, Microsoft, Cisco, and more.",
+    icon: "🖥️"
+  }, {
+    title: "English Exam Vouchers",
+    description: "Affordable vouchers for TOEFL, PTE, GRE, and more.",
+    icon: "🎓"
+  }, {
+    title: "Expert Support",
+    description: "Dedicated team to guide you through the certification journey.",
+    icon: "👨‍💼"
+  }];
+  const testimonials = [{
+    name: "Sumit Parab",
+    role: "Student",
+    comment: "Fantastic support team, affordable prices, and easy process!"
+  }, {
+    name: "Katie Daniel",
+    role: "IT Professional",
+    comment: "ISACA training was smooth and detailed. Highly recommended."
+  }, {
+    name: "Rahul Sharma",
+    role: "Software Engineer",
+    comment: "The AWS training helped me secure a better job. Thank you!"
+  }];
+  return <div>
       {/* Hero Section */}
       <section className="relative h-[600px]">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d')",
-          }}
-        >
+        <div className="absolute inset-0 bg-cover bg-center" style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d')"
+      }}>
           <div className="gradient-overlay"></div>
         </div>
         <div className="container-custom relative h-full flex flex-col justify-center">
@@ -69,11 +52,7 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-ntil-800"
-                >
+                <Button size="lg" variant="outline" className="border-white hover:bg-white text-slate-900">
                   Get in Touch
                 </Button>
               </Link>
@@ -95,15 +74,13 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-shadow">
+            {services.map((service, index) => <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-shadow">
                 <CardContent className="p-6">
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                   <p className="text-gray-600">{service.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -121,8 +98,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {["AWS", "Microsoft", "CompTIA", "Cisco", "ISACA", "PMI"].map((program) => (
-              <Card key={program} className="overflow-hidden hover:shadow-lg transition-shadow">
+            {["AWS", "Microsoft", "CompTIA", "Cisco", "ISACA", "PMI"].map(program => <Card key={program} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="h-48 bg-ntil-100 flex items-center justify-center">
                   <h3 className="text-2xl font-bold text-ntil-800">{program}</h3>
                 </div>
@@ -145,8 +121,7 @@ const Index = () => {
                     Learn More
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
           
           <div className="text-center mt-10">
@@ -172,8 +147,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-ntil-900 border-ntil-800 text-white">
+            {testimonials.map((testimonial, index) => <Card key={index} className="bg-ntil-900 border-ntil-800 text-white">
                 <CardContent className="p-6">
                   <div className="mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-ntil-500">
@@ -189,8 +163,7 @@ const Index = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -218,8 +191,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
