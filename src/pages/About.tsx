@@ -1,5 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const About = () => {
   return (
@@ -110,41 +111,28 @@ const About = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Meet the passionate professionals behind ntil.in.
+              Meet the passionate professional behind ntil.in.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Rahul Verma",
-                role: "Founder & CEO",
-                bio: "With over 15 years of experience in IT training and certification.",
-              },
-              {
-                name: "Priya Shah",
-                role: "Head of Training",
-                bio: "Expert in curriculum development and instructional design.",
-              },
-              {
-                name: "Amit Kumar",
-                role: "Technical Director",
-                bio: "Certified AWS and Microsoft trainer with industry experience.",
-              },
-            ].map((member, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="h-48 bg-ntil-100 flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-ntil-200 flex items-center justify-center text-ntil-600 text-4xl font-bold">
-                    {member.name.split(" ").map(name => name[0]).join("")}
-                  </div>
+          <div className="flex justify-center">
+            <Card className="overflow-hidden max-w-md w-full">
+              <div className="flex flex-col items-center p-6">
+                <div className="w-full h-80 mb-6 overflow-hidden rounded-lg">
+                  <img 
+                    src="/lovable-uploads/d76b2584-ea68-4bc8-9b99-6c00477a2982.png" 
+                    alt="Ashutosh Mishra" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-ntil-600 mb-3">{member.role}</p>
-                  <p className="text-gray-600">{member.bio}</p>
-                </CardContent>
-              </Card>
-            ))}
+                <h3 className="text-2xl font-bold mb-1">Ashutosh Mishra</h3>
+                <p className="text-ntil-600 text-lg mb-3">Founder & CEO</p>
+                <p className="text-gray-600 text-center">
+                  Former Amazon employee with extensive experience in the IT industry. 
+                  Passionate about making quality IT education and certification accessible to all.
+                </p>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
