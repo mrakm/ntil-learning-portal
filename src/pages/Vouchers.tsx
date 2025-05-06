@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { z } from "zod";
 import {
@@ -77,8 +76,8 @@ const Vouchers = () => {
     },
   ];
 
-  const handleVoucherClick = (voucherName: string, action: string) => {
-    setSelectedVoucher(`${voucherName} ${action}`);
+  const handleVoucherClick = (voucherName: string) => {
+    setSelectedVoucher(`${voucherName} Exam Voucher`);
     setContactModalOpen(true);
   };
 
@@ -148,20 +147,12 @@ const Vouchers = () => {
                     </ul>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-3">
-                    <Button 
-                      className="w-full bg-ntil-600 hover:bg-ntil-700"
-                      onClick={() => handleVoucherClick(voucher.name, "Learn More")}
-                    >
-                      Learn More
-                    </Button>
-                    <Button 
-                      className="w-full bg-ntil-600 hover:bg-ntil-700"
-                      onClick={() => handleVoucherClick(voucher.name, "Exam Voucher")}
-                    >
-                      Get Quote
-                    </Button>
-                  </div>
+                  <Button 
+                    className="w-full bg-ntil-600 hover:bg-ntil-700"
+                    onClick={() => handleVoucherClick(voucher.name)}
+                  >
+                    Get Quote
+                  </Button>
                 </CardContent>
               </Card>
             ))}
